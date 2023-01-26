@@ -10,6 +10,7 @@ const userModel = new mongoose.Schema(
       type: String,
       required: true,
     },
+    profilePicture: String,
     password: String,
   },
   { timestamps: true }

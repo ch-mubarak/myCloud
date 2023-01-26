@@ -1,5 +1,6 @@
 import User from "../models/userModel.js";
 import bcrypt from "bcryptjs";
+import jwtDecode from "jwt-decode";
 import jwt from "jsonwebtoken";
 
 //@des Register user
@@ -51,6 +52,30 @@ export const loginUser = async (req, res, next) => {
       res.status(401);
       throw new Error("Invalid credentials");
     }
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const googleLogin = async (req, res) => {
+  try {
+    const { googleToken } = req.body;
+    let token, myUser;
+    const userData = await jwtDecode(googleToken);
+    const user = await User.findOne({ email: userData.email });
+    if (user) {
+      myUser = user;
+    } else {
+      const newUser = await User.create({
+        email: userData.email,
+        name: userData.name,
+        profilePicture: userData.picture,
+      });
+      newUser.password = undefined;
+      myUser = newUser;
+    }
+    token = generateToken(myUser._id);
+    res.status(200).json({ user: myUser, token });
   } catch (err) {
     next(err);
   }

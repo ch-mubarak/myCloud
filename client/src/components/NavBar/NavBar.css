@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #c07272;
+}
+
+.navbar > img {
+  width: 5rem;
+}
+
+.navbar > ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.navbar > ul > li {
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
