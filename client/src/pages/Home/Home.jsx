@@ -1,9 +1,12 @@
-import "./Home.css"
+import Upload from "../../components/Upload/Upload";
+import "./Home.css";
 
 const Home = () => {
   return (
-    <div className='home'>Home</div>
-  )
-}
+    <div className="home">
+      <Upload />
+    </div>
+  );
+};
 
-export default Home
+export default Home;

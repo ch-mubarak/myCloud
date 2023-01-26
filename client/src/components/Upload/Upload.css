@@ -1,0 +1,31 @@
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 20rem;
+  height: 10rem;
+  padding: 2rem;
+  border: 2px dashed #d87373;
+}
+.upload > img {
+  width: 3rem;
+}
+
+.upload:hover {
+  background-color: #e5d8d8;
+  cursor: pointer;
+}
+
+.upload > button {
+  color: #fff;
+  background: #d87373;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.4rem;
+}
+
+.upload > button:hover {
+  cursor: pointer;
+  background: #a44f4f;
+}

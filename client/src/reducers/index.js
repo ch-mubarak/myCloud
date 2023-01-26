@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import authReducer from "./AuthReducer";
+import fileReducer from "./FileReducer";
 
 const appReducers = combineReducers({
   authReducer,
+  fileReducer,
 });
 
 const rootReducer = (state, action) => {
