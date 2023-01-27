@@ -42,7 +42,7 @@ const fileReducer = (state = initialState, action) => {
     case "FILE_UPLOAD_SUCCESS":
       return {
         ...state,
-        files: [action.payload, ...state.files],
+        files: [action.payload.file, ...state.files],
         uploading: false,
         error: false,
       };

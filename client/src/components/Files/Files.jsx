@@ -6,13 +6,15 @@ import "./Files.css";
 
 const Files = () => {
   const dispatch = useDispatch();
-  const { files } = useSelector((state) => state.fileReducer);
+
+  const { files, loading } = useSelector((state) => state.fileReducer);
 
   useEffect(() => {
     dispatch(fetchFiles());
   }, []);
   return (
     <div className="files">
+      {loading && <p>Fetching...</p>}
       {files.map((file) => (
         <File key={file._id} data={file} />
       ))}

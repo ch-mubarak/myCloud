@@ -1,11 +1,12 @@
 import { useRef } from "react";
-import { uploadFile } from "../../api/FileRequest";
 import { UilUploadAlt } from "@iconscout/react-unicons";
+import { uploadFile } from "../../actions/FileAction";
 import "./Upload.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Upload = () => {
   const { uploading } = useSelector((state) => state.fileReducer);
+  const dispatch = useDispatch();
   const fileRef = useRef();
   const handleClick = () => {
     fileRef.current.click();
@@ -21,19 +22,21 @@ const Upload = () => {
     fileData.append("name", fileName);
     fileData.append("file", file);
     try {
-      const { data } = await uploadFile(fileData);
-      console.log(data);
+      dispatch(uploadFile(fileData));
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <div className="upload" onClick={handleClick}>
-      <UilUploadAlt size={200} />
-      <button>Upload</button>
-      <input onChange={handleUpload} ref={fileRef} hidden type="file" />
-    </div>
+    <>
+      <div className="upload">
+        <UilUploadAlt size={200} />
+        {!uploading && <button onClick={handleClick}>Upload</button>}
+        {uploading && <h3>uploading....</h3>}
+        <input onChange={handleUpload} ref={fileRef} hidden type="file" />
+      </div>
+    </>
   );
 };
 

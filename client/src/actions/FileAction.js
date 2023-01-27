@@ -9,3 +9,13 @@ export const fetchFiles = () => async (dispatch) => {
     dispatch({ type: "FETCH_FILES_FAIL" });
   }
 };
+
+export const uploadFile = (file) => async (dispatch) => {
+  dispatch({ type: "FILE_UPLOADING_START" });
+  try {
+    const { data } = await FileApi.uploadFile(file);
+    dispatch({ type: "FILE_UPLOAD_SUCCESS", payload: data });
+  } catch (err) {
+    dispatch({ type: "FILE_UPLOAD_FAIL" });
+  }
+};

@@ -3,7 +3,7 @@ import File from "../models/fileModel.js";
 export const getAllFiles = async (req, res, next) => {
   try {
     const { userId } = req.user;
-    const files = await File.find({ author: userId });
+    const files = await File.find({ author: userId }).select("-filePath");
     res.status(200).json(files);
   } catch (err) {
     next(err);
@@ -20,6 +20,7 @@ export const uploadFile = async (req, res, next) => {
       fileName,
       filePath,
     });
+    file.filePath = undefined;
     await file.save();
     res.status(201).json({ message: "File upload success", file });
   } catch (err) {
