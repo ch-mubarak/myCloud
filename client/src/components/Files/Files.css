@@ -1,0 +1,8 @@
+.files {
+  display: grid;
+  height: 70vh;
+  gap:3rem;
+  padding: 3rem;
+  grid-template-columns: repeat(6, 1fr);
+  overflow: auto
+}

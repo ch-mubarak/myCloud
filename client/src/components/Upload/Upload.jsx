@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { uploadFile } from "../../api/FileRequest";
+import { UilUploadAlt } from "@iconscout/react-unicons";
 import "./Upload.css";
 
 const Upload = () => {
@@ -13,11 +14,12 @@ const Upload = () => {
       return;
     }
     let file = e.target.files[0];
-    const formData = new FormData();
-    formData.append("name", file.name);
-    formData.append("file", file);
+    const fileData = new FormData();
+    const fileName = Date.now() + file.name;
+    fileData.append("name", fileName);
+    fileData.append("file", file);
     try {
-      const { data } = await uploadFile(formData);
+      const { data } = await uploadFile(fileData);
       console.log(data);
     } catch (err) {
       console.log(err);
@@ -26,10 +28,7 @@ const Upload = () => {
 
   return (
     <div className="upload" onClick={handleClick}>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Upload_icon_-_Font_Awesome_-_Red.svg/1792px-Upload_icon_-_Font_Awesome_-_Red.svg.png"
-        alt="upload"
-      />
+      <UilUploadAlt size={200} />
       <button>Upload</button>
       <input onChange={handleUpload} ref={fileRef} hidden type="file" />
     </div>

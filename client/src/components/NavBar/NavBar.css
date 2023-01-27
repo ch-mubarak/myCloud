@@ -3,7 +3,8 @@
   padding: 1rem 2rem;
   justify-content: space-between;
   align-items: center;
-  background-color: #c07272;
+  color: #fff;
+  background-color: #3d5a80;
 }
 
 .navbar > img {

@@ -1,6 +1,7 @@
-.home{
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.home {
+  height: 88vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 }

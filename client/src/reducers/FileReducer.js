@@ -16,9 +16,10 @@ const fileReducer = (state = initialState, action) => {
       };
 
     case "FETCH_FILES_SUCCESS":
+      console.log(action.payload);
       return {
         ...state,
-        files: [...action.payload.data],
+        files: [...action.payload],
         loading: false,
         error: false,
       };
@@ -41,7 +42,7 @@ const fileReducer = (state = initialState, action) => {
     case "FILE_UPLOAD_SUCCESS":
       return {
         ...state,
-        files: [action.payload.data, ...state.files],
+        files: [action.payload, ...state.files],
         uploading: false,
         error: false,
       };
@@ -52,7 +53,7 @@ const fileReducer = (state = initialState, action) => {
         uploading: false,
         error: true,
       };
-      
+
     default:
       return state;
   }

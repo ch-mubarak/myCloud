@@ -2,24 +2,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   width: 20rem;
   height: 10rem;
   padding: 2rem;
-  border: 2px dashed #d87373;
+  border: 2px dashed #3d5a80;
 }
-.upload > img {
-  width: 3rem;
+.upload > svg {
+  color: #263f61;
 }
 
 .upload:hover {
-  background-color: #e5d8d8;
+  background-color: #d2dee3;
   cursor: pointer;
 }
 
 .upload > button {
   color: #fff;
-  background: #d87373;
+  background: #3d5a80;
   border: none;
   padding: 0.5rem 0.8rem;
   border-radius: 0.4rem;
@@ -27,5 +27,5 @@
 
 .upload > button:hover {
   cursor: pointer;
-  background: #a44f4f;
+  background: #263f61;
 }
