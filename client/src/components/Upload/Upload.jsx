@@ -2,8 +2,10 @@ import { useRef } from "react";
 import { uploadFile } from "../../api/FileRequest";
 import { UilUploadAlt } from "@iconscout/react-unicons";
 import "./Upload.css";
+import { useSelector } from "react-redux";
 
 const Upload = () => {
+  const { uploading } = useSelector((state) => state.fileReducer);
   const fileRef = useRef();
   const handleClick = () => {
     fileRef.current.click();

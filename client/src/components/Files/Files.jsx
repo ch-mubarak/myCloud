@@ -8,8 +8,6 @@ const Files = () => {
   const dispatch = useDispatch();
   const { files } = useSelector((state) => state.fileReducer);
 
-  console.log(files);
-
   useEffect(() => {
     dispatch(fetchFiles());
   }, []);
