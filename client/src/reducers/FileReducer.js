@@ -16,7 +16,6 @@ const fileReducer = (state = initialState, action) => {
       };
 
     case "FETCH_FILES_SUCCESS":
-      console.log(action.payload);
       return {
         ...state,
         files: [...action.payload],

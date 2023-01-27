@@ -20,8 +20,8 @@ export const uploadFile = async (req, res, next) => {
       fileName,
       filePath,
     });
-    file.filePath = undefined;
     await file.save();
+    file.filePath = undefined;
     res.status(201).json({ message: "File upload success", file });
   } catch (err) {
     next(err);
